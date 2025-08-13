@@ -1,0 +1,15 @@
+node_modules
+dist
+build
+.vscode
+.env
+.DS_Store
+**/.env
+**/out
+**/coverage
+**/tmp
+**/.turbo
+**/.vite
+**/.cache
+*.log
+*.zip

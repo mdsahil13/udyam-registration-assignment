@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Udyam Registration \u2014 Steps 1 & 2",
+    "version": "1.0.0",
+    "source": "https://udyamregistration.gov.in/UdyamRegistration.aspx"
+  },
+  "steps": [
+    {
+      "key": "aadhaar_otp",
+      "title": "Aadhaar Verification (OTP)",
+      "fields": [
+        {
+          "key": "aadhaarNumber",
+          "label": "Aadhaar Number",
+          "type": "text",
+          "required": true,
+          "placeholder": "12-digit Aadhaar",
+          "validation": {
+            "regex": "^\\d{12}$",
+            "message": "Aadhaar must be 12 digits"
+          }
+        },
+        {
+          "key": "nameAsPerAadhaar",
+          "label": "Name of Entrepreneur (as per Aadhaar)",
+          "type": "text",
+          "required": true,
+          "placeholder": "Your full name",
+          "validation": {
+            "regex": "^[A-Za-z ]{3,}$",
+            "message": "Name should be alphabetic (min 3 chars)"
+          }
+        },
+        {
+          "key": "declarationConsent",
+          "label": "I agree and authorize Aadhaar OTP verification",
+          "type": "checkbox",
+          "required": true
+        }
+      ],
+      "actions": [
+        {
+          "key": "generateOtp",
+          "label": "Validate & Generate OTP",
+          "endpoint": "/api/otp/generate"
+        },
+        {
+          "key": "verifyOtp",
+          "label": "Verify OTP",
+          "endpoint": "/api/otp/verify"
+        }
+      ]
+    },
+    {
+      "key": "pan_validation",
+      "title": "PAN Verification",
+      "fields": [
+        {
+          "key": "panNumber",
+          "label": "PAN Number",
+          "type": "text",
+          "required": true,
+          "placeholder": "ABCDE1234F",
+          "validation": {
+            "regex": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$",
+            "message": "PAN format: 5 letters, 4 digits, 1 letter (e.g., ABCDE1234F)"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "key": "validatePan",
+          "label": "Validate PAN",
+          "endpoint": "/api/validate/pan"
+        },
+        {
+          "key": "submit",
+          "label": "Submit",
+          "endpoint": "/api/submit"
+        }
+      ]
+    }
+  ]
+}
